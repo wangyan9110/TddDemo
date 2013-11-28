@@ -21,7 +21,8 @@ test('text is number', function () {
     ok(form.checkNumber(1), '判断数字方法');
     ok(!form.checkNumber('a'), '判断数字失败方法');
     ok(form.checkNumber(200), '判断多位数字');
-
+    ok(form.checkNumber(1.2), '增加小数者');
+    ok(!form.checkNumber('1.2.1'), '增加小数者');
 });
 
 test('dom数据同步', function () {
@@ -36,4 +37,7 @@ test('事件触发测试', function () {
     $('#number').val('ab');
     $('#number').trigger('blur');
     equal('文本框必须为数字。', $('#textNumber').text(), '异常同步方法');
+    $('#number').val('');
+    $('#number').trigger('blur');
+    equal('', $('#textNumber').text(), '异常同步方法');
 });

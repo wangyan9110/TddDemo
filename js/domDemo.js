@@ -23,7 +23,7 @@
         form.prototype = {
             constructor: form,
             checkNumber: function (num) {
-                var reg = /^\d+$/;
+                var reg = /^?\d+\.\d+$/;
                 return reg.test(num);
             },
             synch: function () {
@@ -31,6 +31,10 @@
             },
             _bindEvents: function () {
                 this._number.blur(function () {
+                    if ($(this).val() == '') {
+                        _self._textDemo.text('');
+                        return;
+                    }
                     if (!_self.checkNumber($(this).val())) {
                         _self._textDemo.text('文本框必须为数字。');
                         return;
