@@ -8,8 +8,6 @@
  * Describe: {请描述功能}
  */
 
-window.simpleDemo = {};
-
 (function (simpleDemo) {
     var calculate = (function () {
 
