@@ -16,8 +16,24 @@ module('form test', {
     }
 });
 
-test('text is number',function(){
+test('text is number', function () {
 
-    ok(form.checkNumber(1),'输入框是否是数字测试');
+    ok(form.checkNumber(1), '判断数字方法');
+    ok(!form.checkNumber('a'), '判断数字失败方法');
+    ok(form.checkNumber(200), '判断多位数字');
 
+});
+
+test('dom数据同步', function () {
+    form.synch();
+    equal($('#number').val(), $('#textNumber').text(), '判断同步方法');
+});
+
+test('事件触发测试', function () {
+    $('#number').val('23');
+    $('#number').trigger('blur');
+    equal($('#number').val(), $('#textNumber').text(), '判断同步方法');
+    $('#number').val('ab');
+    $('#number').trigger('blur');
+    equal('文本框必须为数字。', $('#textNumber').text(), '异常同步方法');
 });

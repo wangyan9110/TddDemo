@@ -10,19 +10,35 @@
 
 (function (simpleDemo) {
     var form = (function () {
+        var _self;
 
         function form() {
+            this._number = $('#number');
+            this._textDemo = $('#textNumber');
+            _self = this;
 
+            this._bindEvents();
         }
 
         form.prototype = {
-            constructor: Form,
-
+            constructor: form,
             checkNumber: function (num) {
-                return true;
+                var reg = /^\d+$/;
+                return reg.test(num);
+            },
+            synch: function () {
+                this._textDemo.text(this._number.val());
+            },
+            _bindEvents: function () {
+                this._number.blur(function () {
+                    if (!_self.checkNumber($(this).val())) {
+                        _self._textDemo.text('文本框必须为数字。');
+                        return;
+                    }
+                    _self.synch();
+                });
             }
         };
-
 
         return form;
     })();
