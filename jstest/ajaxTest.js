@@ -18,9 +18,9 @@ module('ajax setup', {
 });
 
 asyncTest('ajax test', function () {
-    expect(1);
+    expect(2);
     ajaxDemo.get(function (value) {
-        equal('hello word', value, '测试ajax');
+        equal('hello word', value, 'ok');
         start();
     });
 });

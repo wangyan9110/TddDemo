@@ -19,11 +19,20 @@
         ajaxDemo.prototype = {
             constructor: ajaxDemo,
             get: function (callback) {
-                $.mockjax({
+                var isMock = true;
+                if (isMock) {
+                    $.mockjax({
+                        url: '/user/test',
+                        status: 200,
+                        responseTime: 900,
+                        responseText: 'hello word'
+                    });
+                }
+                $.ajax({
                     url: '/user/test',
-                    status: 200,
-                    responseTime: 300,
-                    responseText: 'hello word'
+                    success: function (data) {
+                        callback(data);
+                    }
                 });
             }
         };
