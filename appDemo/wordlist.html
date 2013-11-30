@@ -4,17 +4,34 @@
     <title></title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <link rel="stylesheet" type="text/css" href="css/app.css"/>
+    <link rel="stylesheet" type="text/css" href="js/lib/qunit-git.css"/>
 </head>
 <body>
 
-<script type="text/html" id="wordList">
+<script type="text/html" id="wordListtmpl">
     <ul>
         <% for(var i=0; i< words.length; i++){ %>
-        <li><span class="word"><%= words[i].word %></span>
-            <span class="score"><%= words[i].score %></span></li>
+        <li class="wordlist"><span class="word"><%= words[i].word %></span>
+            <% if(words[i].score){ %>
+            <span class="score"><%= words[i].score %></span>
+            <% } %>
+        </li>
         <% } %>
     </ul>
 </script>
 
+<div id="content"></div>
+
+<div id="qunit"></div>
+<div id="qunit-fixture"></div>
+
+<script type="text/javascript" src="js/lib/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="js/lib/template.min.js"></script>
+<script type="text/javascript" src="js/lib/jquery.mockjax.js"></script>
+<script type="text/javascript" src="js/lib/qunit-1.12.0.js"></script>
+<script type="text/javascript" src="js/app/app.js"></script>
+<script type="text/javascript" src="js/app/romote.js"></script>
+<script type="text/javascript" src="js/app/ctr.js"></script>
+<script type="text/javascript" src="js/uinttest/appTest.js"></script>
 </body>
 </html>
