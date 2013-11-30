@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" type="text/css" href="css/app.css"/>
+</head>
+<body>
+
+<script type="text/html" id="wordList">
+    <ul>
+        <% for(var i=0; i< words.length; i++){ %>
+        <li><span class="word"><%= words[i].word %></span>
+            <span class="score"><%= words[i].score %></span></li>
+        <% } %>
+    </ul>
+</script>
+
+</body>
+</html>

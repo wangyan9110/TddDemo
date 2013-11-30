@@ -1,0 +1,16 @@
+li {
+    width: 100px;
+    height: 40px;
+    vertical-align: middle;
+    list-style: none;
+}
+
+.word {
+    float: left;
+    color: green;
+}
+
+.score {
+    margin-left: 10px;
+    color: red;
+}
