@@ -13,3 +13,11 @@
  */
 
 window.app = {};
+
+app.run = function () {
+    var remote = new app.wordRd(),
+        ctr = new app.wordCtr();
+    remote.getRes(function (data) {
+        ctr.display(data);
+    });
+}
