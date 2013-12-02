@@ -16,6 +16,7 @@
     var wordCtr = (function () {
         function wordCtr() {
             this._romote = new app.wordRd();
+            this._content=$('#content');
         }
 
         wordCtr.prototype = {
@@ -26,7 +27,7 @@
                     words: wordObjs
                 };
                 html = template.render('wordListtmpl', viewModel);
-                $('#content').html(html);
+                this._content.html(html);
             },
             reset: function (wordObjs) {
                 var viewModel=null,html='';
@@ -34,7 +35,7 @@
                     words:wordObjs
                 };
                 html = template.render('wordListtmpl', viewModel);
-                $('#content').html(html);
+                this._content.html(html);
             },
             _daoToObj: function (data) {
                 var wordsObj = $.parseJSON(data),
